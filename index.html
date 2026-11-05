@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Hao Wang, undergraduate student at Zhengzhou University. Research interests: low-level vision, image fusion, multi-view clustering, and causal representation learning.">
+  <meta name="theme-color" content="#f7f9fc">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hao Wang">
+  <meta property="og:description" content="Hao Wang's academic homepage. Undergraduate student at Zhengzhou University.">
+  <title>Hao Wang</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('haow-theme');
+      if (savedTheme === 'dark' || (!savedTheme && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.dataset.theme = 'dark';
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script defer src="./site-data.js"></script>
+  <script defer src="./assets/site.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <nav aria-label="Main navigation" id="navigation">
+        <a class="nav-link active" href="#about" aria-current="location">About</a>
+        <a class="nav-link" href="#research">Research</a>
+        <a class="nav-link" href="#publications">Publications</a>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch color theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"/></svg></button>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="page-shell">
+    <section id="about" aria-labelledby="name">
+      <header class="post-header">
+        <h1 id="name">Hao Wang</h1>
+        <p id="role" class="description">Undergraduate Student @ Zhengzhou University</p>
+      </header>
+      <div class="about-layout">
+        <aside class="profile-aside" aria-label="Profile">
+          <div id="portrait-slot" class="portrait-slot" hidden></div>
+          <div class="profile-caption" id="caption-affiliation">Zhengzhou University</div>
+          <div id="social-links" class="social-links"><a href="https://github.com/Wangh688" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </aside>
+        <div class="about-copy">
+          <div id="biography" class="biography">
+            <p>Hi, I am <strong>Hao Wang</strong>.</p>
+            <p>I am an undergraduate student at <a href="https://www.zzu.edu.cn/" target="_blank" rel="noopener noreferrer">Zhengzhou University</a>.</p>
+          </div>
+          <section id="research" aria-labelledby="research-heading">
+            <h2 id="research-heading">Research Interests</h2>
+            <ul id="research-list" class="research-list">
+              <li>Low-level vision</li><li>Image fusion</li><li>Multi-view clustering</li><li>Causal representation learning</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+    <section id="news" class="content-section" aria-labelledby="news-heading" hidden>
+      <h2 id="news-heading">News</h2><ul class="news-list" id="news-list"></ul>
+    </section>
+    <section id="publications" class="content-section" aria-labelledby="publications-heading">
+      <h2 id="publications-heading">Selected Publications</h2>
+      <p id="publication-note" class="section-note" hidden></p>
+      <div id="publication-tools" class="publication-tools" hidden>
+        <div id="year-filters" class="year-filters" role="group" aria-label="Filter publications by year"></div>
+        <label class="search-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="publication-search" type="search" autocomplete="off" aria-label="Search publications" placeholder="Search publications"></label>
+      </div>
+      <div id="publication-list" class="publication-list" aria-live="polite"></div>
+      <p id="publication-empty" class="publication-empty">To be updated.</p>
+    </section>
+    <section id="experience" class="content-section" aria-labelledby="experience-heading" hidden>
+      <h2 id="experience-heading">Experience</h2><div id="experience-list" class="experience-list"></div>
+    </section>
+    <section id="awards" class="content-section" aria-labelledby="awards-heading" hidden>
+      <h2 id="awards-heading">Honors &amp; Awards</h2><ul id="awards-list" class="news-list"></ul>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><p>© <span id="copyright-year">2026</span> <span id="footer-name">Hao Wang</span>.</p><a href="#about" class="back-top">Back to top ↑</a></div></footer>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>
