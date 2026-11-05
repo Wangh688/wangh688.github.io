@@ -14,11 +14,9 @@
   };
   const icon = {
     github: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 20c-4 1-4-2-5-2m10 4v-4a3.5 3.5 0 0 0-1-3c3-.3 6-1.5 6-6a5 5 0 0 0-1-3.5A5 5 0 0 0 17 2s-1-.3-4 1a13 13 0 0 0-6 0C4 1.7 3 2 3 2a5 5 0 0 0 0 3.5A5 5 0 0 0 2 9c0 4.5 3 5.7 6 6a3.5 3.5 0 0 0-1 3v4" transform="translate(2 0) scale(.9)"/></svg>',
-    paper: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8 3h11l6 6v20H8Z"/><path d="M19 3v7h6M12 16h9M12 20h9M12 24h6"/></svg>',
-    moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"/></svg>',
-    sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>'
+    paper: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8 3h11l6 6v20H8Z"/><path d="M19 3v7h6M12 16h9M12 20h9M12 24h6"/></svg>'
   };
-  const strings = { noPublications: 'To be updated.', noResults: 'No publications match your search.', all: 'All', search: 'Search publications', filter: 'Filter publications by year', copy: 'Copy', copied: 'Copied', copyFailed: 'Please select and copy the citation below.', scholar: 'Google Scholar', email: 'Email', cv: 'CV', light: 'Switch to light theme', dark: 'Switch to dark theme', imageUnavailable: 'Preview unavailable' };
+  const strings = { noPublications: 'To be updated.', noResults: 'No publications match your search.', all: 'All', search: 'Search publications', filter: 'Filter publications by year', copy: 'Copy', copied: 'Copied', copyFailed: 'Please select and copy the citation below.', scholar: 'Google Scholar', email: 'Email', cv: 'CV', imageUnavailable: 'Preview unavailable' };
   let activeYear = 'all';
   let query = '';
   let observer;
@@ -122,20 +120,12 @@
     $('awards-list').innerHTML = awards.map((item) => `<li class="news-item"><span class="news-date">${escape(item.year)}</span><p>${escape(localized(item.title))}</p></li>`).join('');
   }
 
-  function updateThemeControl() {
-    const isDark = document.documentElement.dataset.theme === 'dark';
-    $('theme-toggle').innerHTML = isDark ? icon.sun : icon.moon;
-    $('theme-toggle').setAttribute('aria-label', t(isDark ? 'light' : 'dark'));
-    document.querySelector('meta[name="theme-color"]').content = isDark ? '#101820' : '#f7f9fc';
-  }
-
   function render() {
     renderProfile();
     renderResearch();
     renderOptionalSections();
     renderFilters();
     renderPapers();
-    updateThemeControl();
     observeSections();
   }
 
@@ -156,12 +146,6 @@
     ['about', 'research', 'publications'].forEach((id) => observer.observe($(id)));
   }
 
-  $('theme-toggle').addEventListener('click', () => {
-    const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = theme;
-    try { localStorage.setItem('haow-theme', theme); } catch (_) {}
-    updateThemeControl();
-  });
   $('year-filters').addEventListener('click', (event) => {
     const button = event.target.closest('button[data-year]');
     if (!button) return;
