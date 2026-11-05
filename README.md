@@ -65,7 +65,7 @@ Then visit `http://127.0.0.1:4173/`. All assets are local. There are no external
 
 In **Settings → Pages → Build and deployment**, choose **Deploy from a branch**, select **main** and **/ (root)**, then save. The included `.nojekyll` file enables plain static publishing.
 
-With the repository named `haoW.github.io`, the expected project URL is `https://wangh688.github.io/haoW.github.io/`. Check Settings → Pages for the actual deployment status. To use `https://wangh688.github.io/`, rename the repository to `wangh688.github.io`.
+The homepage is published at [https://wangh688.github.io/](https://wangh688.github.io/). The repository is named `wangh688.github.io` to serve the account-level GitHub Pages site. Check Settings → Pages for deployment status.
 
 ## Design references
 
