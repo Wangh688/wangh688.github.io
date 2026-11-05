@@ -11,9 +11,15 @@ Update `site-data.js`:
 - `publications`: publications in the order you want them displayed.
 - `news`, `experience`, and `awards`: empty arrays hide the corresponding sections.
 
-Unprovided information remains empty. The homepage contains no sample publications or invented credentials. An empty portrait path hides the photograph area. Empty email, Scholar, and CV values hide those links.
+Unprovided information remains empty. The homepage contains no sample publications or invented credentials. An empty portrait path hides the photograph area. Empty email, Scholar, and CV values hide the optional contact links; the CV navigation tab remains available.
 
 The initial HTML also contains the confirmed basic information for visitors without JavaScript. When changing the name, affiliation, or research interests, update those fallback texts and the metadata in `index.html` as well.
+
+## CV page
+
+The CV navigation tab opens the standalone page at [https://wangh688.github.io/cv/](https://wangh688.github.io/cv/). It currently displays an availability message, with no placeholder resume or inactive download button.
+
+When the real CV is ready, add the PDF under `assets/cv/` and replace the message in `cv/index.html` with the document or its download link. Set `profile.cv` in `site-data.js` to the PDF path if you also want a direct link in the homepage's contact area.
 
 ## Add a publication
 
