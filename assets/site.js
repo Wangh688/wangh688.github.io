@@ -22,7 +22,6 @@
   const strings = { noPublications: 'To be updated.', noResults: 'No publications match your search.', all: 'All', search: 'Search publications', filter: 'Filter publications by year', copy: 'Copy', copied: 'Copied', copyFailed: 'Please select and copy the citation below.', scholar: 'Google Scholar', email: 'Email', cv: 'CV', imageUnavailable: 'Preview unavailable' };
   let activeYear = 'all';
   let query = '';
-  let observer;
   const t = (key) => strings[key];
   const localized = (value) => String(value ?? '');
   const externalLink = (url, label, className = '') => safeUrl(url) ? `<a class="${className}" href="${escape(safeUrl(url))}" target="_blank" rel="noopener noreferrer">${label}</a>` : label;
@@ -138,24 +137,83 @@
     renderOptionalSections();
     renderFilters();
     renderPapers();
-    observeSections();
   }
 
-  function observeSections() {
-    if (!('IntersectionObserver' in window)) return;
-    if (observer) observer.disconnect();
-    observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          document.querySelectorAll('.nav-link').forEach((link) => {
-            const active = link.hash === `#${entry.target.id}`;
-            link.classList.toggle('active', active);
-            if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
-          });
-        }
+  function initializeNavigation() {
+    const navigation = $('navigation');
+    const links = [...navigation.querySelectorAll('a[href^="#"]')];
+    const sections = [...document.querySelectorAll('main section[id]')]
+      .filter((section) => links.some((link) => link.hash === `#${section.id}`));
+    const header = document.querySelector('.site-header');
+    let navigating = false;
+    let idleTimer;
+    let frame = 0;
+
+    function activate(id) {
+      links.forEach((link) => {
+        const active = link.hash === `#${id}`;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
+      });
+    }
+
+    function releaseNavigation() {
+      navigating = false;
+      clearTimeout(idleTimer);
+    }
+
+    function selectAnchor(hash) {
+      const section = sections.find((item) => `#${item.id}` === hash);
+      if (!section) return false;
+      activate(section.id);
+      navigating = true;
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(releaseNavigation, 1000);
+      return true;
+    }
+
+    function updateFromScroll() {
+      frame = 0;
+      if (navigating) return;
+      const threshold = header.getBoundingClientRect().bottom + 28;
+      let current = sections[0];
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= threshold) current = section;
       }
-    }, { rootMargin: '-15% 0px -55% 0px', threshold: 0 });
-    ['about', 'research', 'publications'].forEach((id) => observer.observe($(id)));
+      if (window.scrollY > 1 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        current = sections[sections.length - 1];
+      }
+      activate(current.id);
+    }
+
+    function onScroll() {
+      // Keep the clicked item selected through smooth scrolling and clamped end-of-page anchors.
+      if (navigating) {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(releaseNavigation, 180);
+      } else if (!frame) {
+        frame = requestAnimationFrame(updateFromScroll);
+      }
+    }
+
+    navigation.addEventListener('click', (event) => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      const link = event.target.closest('a[href^="#"]');
+      if (link) selectAnchor(link.hash);
+    });
+    window.addEventListener('hashchange', () => {
+      if (!selectAnchor(window.location.hash)) { releaseNavigation(); updateFromScroll(); }
+    });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('wheel', releaseNavigation, { passive: true });
+    window.addEventListener('touchstart', releaseNavigation, { passive: true });
+    window.addEventListener('pointerdown', releaseNavigation, { passive: true });
+    window.addEventListener('keydown', (event) => {
+      if (event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) releaseNavigation();
+    });
+    if (!selectAnchor(window.location.hash)) updateFromScroll();
   }
 
   $('year-filters').addEventListener('click', (event) => {
@@ -186,4 +244,5 @@
     }
   });
   render();
+  initializeNavigation();
 })();
