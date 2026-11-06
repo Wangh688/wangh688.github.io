@@ -77,4 +77,4 @@ The homepage is published at [https://wangh688.github.io/](https://wangh688.gith
 
 The page follows the restrained academic structure of [Jiaxuan Zou's homepage](https://jiaxuanzou0714.github.io/), with publication presentation inspired by [Yi Xiao's homepage](https://xy-boy.github.io/). The implementation is original and does not copy either person's biography, photographs, or publications.
 
-The blue aperture favicon adapts [Lucide's Aperture icon](https://lucide.dev/icons/aperture), derived from Feather. Its colors and stroke width are adjusted for this site; the original license notices are included in [assets/LICENSE-lucide.txt](assets/LICENSE-lucide.txt).
+The favicon uses the approved interlocking HW monogram, with pure black letters on a pure white background. The SVG preserves the approved artwork as vector outlines, with tighter margins for visibility in browser tabs. A multi-size `favicon.ico` provides 16, 32, and 48 px versions. Both Home and CV reference the same icon.
