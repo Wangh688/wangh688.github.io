@@ -11,7 +11,7 @@ Update `site-data.js`:
 - `publications`: publications in the order you want them displayed.
 - `news`, `experience`, and `awards`: empty arrays keep the sections visible with a "To be updated." message; adding entries replaces that message. Experience appears immediately below News.
 
-Unprovided information remains empty. The homepage contains no sample publications or invented credentials. An empty portrait path keeps a blank circular photo frame on the right. Set `profile.portrait` to the real photo path when ready; it will fill the same frame. If the photo cannot load, the empty frame remains visible. Empty email, Scholar, and CV values hide the optional contact links; the CV navigation tab remains available.
+Unprovided information remains empty. The homepage contains no sample publications or invented credentials. An empty portrait path keeps a blank circular photo frame on the right. Set `profile.portrait` to the real photo path when ready; it will fill the same frame. If the photo cannot load, the empty frame remains visible. GitHub, email, and Google Scholar icons always appear below the portrait. Empty contact values keep their icons visible but inactive, without placeholder destinations. Set `profile.email` to the email address and `profile.scholar` to the Google Scholar profile URL to activate them. An empty `profile.cv` hides the optional CV contact link; the CV navigation tab remains available.
 
 The initial HTML also contains the confirmed basic information for visitors without JavaScript. When changing the name, affiliation, or research interests, update those fallback texts and the metadata in `index.html` as well.
 
@@ -78,3 +78,5 @@ The homepage is published at [https://wangh688.github.io/](https://wangh688.gith
 The page follows the restrained academic structure of [Jiaxuan Zou's homepage](https://jiaxuanzou0714.github.io/), with publication presentation inspired by [Yi Xiao's homepage](https://xy-boy.github.io/). The implementation is original and does not copy either person's biography, photographs, or publications.
 
 The favicon uses the approved interlocking HW monogram, with pure black letters on a pure white background. The SVG preserves the approved artwork as vector outlines, with tighter margins for visibility in browser tabs. A multi-size `favicon.ico` provides 16, 32, and 48 px versions. Both Home and CV reference the same icon.
+
+The Google Scholar mark is from [Simple Icons](https://github.com/simple-icons/simple-icons/blob/develop/icons/googlescholar.svg), provided under [CC0](assets/LICENSE-simple-icons.txt).

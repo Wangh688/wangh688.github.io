@@ -13,6 +13,9 @@
     } catch (_) { return ''; }
   };
   const icon = {
+    email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>',
+    // Google Scholar mark from Simple Icons (CC0); see LICENSE-simple-icons.txt.
+    scholar: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>',
     github: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 20c-4 1-4-2-5-2m10 4v-4a3.5 3.5 0 0 0-1-3c3-.3 6-1.5 6-6a5 5 0 0 0-1-3.5A5 5 0 0 0 17 2s-1-.3-4 1a13 13 0 0 0-6 0C4 1.7 3 2 3 2a5 5 0 0 0 0 3.5A5 5 0 0 0 2 9c0 4.5 3 5.7 6 6a3.5 3.5 0 0 0-1 3v4" transform="translate(2 0) scale(.9)"/></svg>',
     paper: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" aria-hidden="true"><path d="M8 3h11l6 6v20H8Z"/><path d="M19 3v7h6M12 16h9M12 20h9M12 24h6"/></svg>'
   };
@@ -23,6 +26,13 @@
   const t = (key) => strings[key];
   const localized = (value) => String(value ?? '');
   const externalLink = (url, label, className = '') => safeUrl(url) ? `<a class="${className}" href="${escape(safeUrl(url))}" target="_blank" rel="noopener noreferrer">${label}</a>` : label;
+  const socialIcon = (url, label, graphic) => {
+    const href = safeUrl(url);
+    const attributes = `class="social-icon" aria-label="${escape(label)}" title="${escape(label)}${href ? '' : ' (coming soon)'}"`;
+    return href
+      ? `<a ${attributes} href="${escape(href)}"${href.startsWith('mailto:') ? '' : ' target="_blank" rel="noopener noreferrer"'}>${graphic}</a>`
+      : `<span ${attributes} role="link" aria-disabled="true">${graphic}</span>`;
+  };
   const publications = Array.isArray(data.publications) ? data.publications.filter((paper) => paper && localized(paper.title).trim()) : [];
 
   function renderProfile() {
@@ -34,10 +44,12 @@
     const affiliation = externalLink(profile.affiliationUrl, escape(localized(profile.affiliation)));
     const fallback = `<p>Hi, I am <strong>${escape(profile.name)}</strong>.</p><p>I am an ${escape(localized(profile.role).toLowerCase())} at ${affiliation}.</p>`;
     $('biography').innerHTML = biography.length ? biography.map((paragraph) => `<p>${escape(paragraph)}</p>`).join('') : fallback;
-    const links = [];
-    if (profile.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) links.push(`<a href="mailto:${escape(profile.email)}">${t('email')} <span class="external-mark" aria-hidden="true">↗</span></a>`);
-    if (safeUrl(profile.scholar)) links.push(externalLink(profile.scholar, `${t('scholar')} <span class="external-mark" aria-hidden="true">↗</span>`));
-    if (safeUrl(profile.github)) links.push(externalLink(profile.github, `${icon.github} GitHub`));
+    const email = profile.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email) ? `mailto:${profile.email}` : '';
+    const links = [
+      socialIcon(profile.github, 'GitHub', icon.github),
+      socialIcon(email, t('email'), icon.email),
+      socialIcon(profile.scholar, t('scholar'), icon.scholar)
+    ];
     if (safeUrl(profile.cv)) links.push(externalLink(profile.cv, `${t('cv')} <span class="external-mark" aria-hidden="true">↗</span>`));
     $('social-links').innerHTML = links.join('');
     $('footer-name').textContent = profile.name;
