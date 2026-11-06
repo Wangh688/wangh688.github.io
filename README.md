@@ -79,4 +79,4 @@ The page follows the restrained academic structure of [Jiaxuan Zou's homepage](h
 
 The favicon uses the approved interlocking HW monogram, with pure black letters on a pure white background. The SVG preserves the approved artwork as vector outlines, with tighter margins for visibility in browser tabs. A multi-size `favicon.ico` provides 16, 32, and 48 px versions. Both Home and CV reference the same icon.
 
-The Google Scholar mark is from [Simple Icons](https://github.com/simple-icons/simple-icons/blob/develop/icons/googlescholar.svg), provided under [CC0](assets/LICENSE-simple-icons.txt).
+Contact icons use [Font Awesome Free](https://fontawesome.com/) for GitHub and the solid envelope, and [Academicons](https://jpswalsh.github.io/academicons/) for the Google Scholar letter-g mark with a mortarboard. They are embedded locally as SVGs. The Google Scholar SVG's vertical font margins are trimmed to align its visible size with the other icons; the glyph outlines are unchanged. Attribution and licenses are in [assets/LICENSE-icons.txt](assets/LICENSE-icons.txt).
