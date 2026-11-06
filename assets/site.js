@@ -39,6 +39,8 @@
     $('name').textContent = profile.name;
     $('role').textContent = `${profile.role} @ ${profile.affiliation}`;
     $('caption-affiliation').textContent = localized(profile.affiliation);
+    $('caption-school').textContent = localized(profile.school);
+    $('caption-school').hidden = !profile.school;
     const biography = profile.biography || [];
     const affiliation = externalLink(profile.affiliationUrl, escape(localized(profile.affiliation)));
     const fallback = `<p>Hi, I am <strong>${escape(profile.name)}</strong>.</p><p>I am an ${escape(localized(profile.role).toLowerCase())} at ${affiliation}.</p>`;

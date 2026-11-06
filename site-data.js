@@ -3,6 +3,7 @@ window.SITE_DATA = {
   profile: {
     name: "Hao Wang",
     role: "Undergraduate Student",
+    school: "School of Computer and Artificial Intelligence",
     affiliation: "Zhengzhou University",
     affiliationUrl: "https://www.zzu.edu.cn/",
     // Example photo path: ./assets/portrait.jpg. Empty keeps the circular frame blank.
