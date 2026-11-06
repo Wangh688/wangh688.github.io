@@ -5,7 +5,7 @@ window.SITE_DATA = {
     role: "Undergraduate Student",
     affiliation: "Zhengzhou University",
     affiliationUrl: "https://www.zzu.edu.cn/",
-    // Example photo path: ./assets/portrait.jpg. Empty means no portrait is shown.
+    // Example photo path: ./assets/portrait.jpg. Empty keeps the circular frame blank.
     portrait: "",
     portraitAlt: "Hao Wang",
     // An array of English paragraphs. Empty uses the confirmed name and affiliation.
