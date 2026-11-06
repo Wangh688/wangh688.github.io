@@ -9,7 +9,7 @@ Update `site-data.js`:
 - `profile`: name, affiliation, role, portrait, English biography paragraphs, and optional links.
 - `researchInterests`: three strings, one per research row, with related topics separated by commas. Narrow screens wrap each row naturally.
 - `publications`: publications in the order you want them displayed.
-- `news` and `awards`: empty arrays keep the sections visible with a "To be updated." message; adding entries replaces that message. An empty `experience` array hides the Experience section.
+- `news`, `experience`, and `awards`: empty arrays keep the sections visible with a "To be updated." message; adding entries replaces that message. Experience appears immediately below News.
 
 Unprovided information remains empty. The homepage contains no sample publications or invented credentials. An empty portrait path keeps a blank circular photo frame on the right. Set `profile.portrait` to the real photo path when ready; it will fill the same frame. If the photo cannot load, the empty frame remains visible. Empty email, Scholar, and CV values hide the optional contact links; the CV navigation tab remains available.
 

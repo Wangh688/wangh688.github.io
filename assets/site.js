@@ -111,7 +111,8 @@
     $('news-empty').hidden = news.length > 0;
     $('news-list').innerHTML = news.map((item) => `<li class="news-item"><span class="news-date">${escape(item.date)}</span><p>${externalLink(item.url, escape(localized(item.text)))}</p></li>`).join('');
     const experience = data.experience || [];
-    $('experience').hidden = experience.length === 0;
+    $('experience-list').hidden = experience.length === 0;
+    $('experience-empty').hidden = experience.length > 0;
     $('experience-list').innerHTML = experience.map((item) => `<article class="experience-item"><p>${escape(localized(item.period))}</p><h3>${escape(localized(item.title))}</h3><p>${escape(localized(item.organization))}</p>${item.description ? `<p>${escape(localized(item.description))}</p>` : ''}</article>`).join('');
     const awards = data.awards || [];
     $('awards-list').hidden = awards.length === 0;
