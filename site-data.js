@@ -2,8 +2,10 @@
 window.SITE_DATA = {
   profile: {
     name: "Hao Wang",
+    nameChinese: "王昊",
     role: "Undergraduate Student",
     school: "School of Computer and Artificial Intelligence",
+    schoolUrl: "https://www7.zzu.edu.cn/csai/index.htm",
     affiliation: "Zhengzhou University",
     affiliationUrl: "https://www.zzu.edu.cn/",
     // Example photo path: ./assets/portrait.jpg. Empty keeps the circular frame blank.

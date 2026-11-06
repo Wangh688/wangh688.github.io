@@ -43,7 +43,9 @@
     $('caption-school').hidden = !profile.school;
     const biography = profile.biography || [];
     const affiliation = externalLink(profile.affiliationUrl, escape(localized(profile.affiliation)));
-    const fallback = `<p>Hi, I am <strong>${escape(profile.name)}</strong>.</p><p>I am an ${escape(localized(profile.role).toLowerCase())} at ${affiliation}.</p>`;
+    const school = profile.school ? `the ${externalLink(profile.schoolUrl, escape(localized(profile.school)))}, ` : '';
+    const chineseName = profile.nameChinese ? ` (<span class="chinese-name" lang="zh-CN">${escape(profile.nameChinese)}</span>)` : '';
+    const fallback = `<p>Hi, I am <strong>${escape(profile.name)}</strong>${chineseName}.</p><p>I am an ${escape(localized(profile.role).toLowerCase())} at ${school}${affiliation}.</p>`;
     $('biography').innerHTML = biography.length ? biography.map((paragraph) => `<p>${escape(paragraph)}</p>`).join('') : fallback;
     const email = profile.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email) ? `mailto:${profile.email}` : '';
     const links = [
