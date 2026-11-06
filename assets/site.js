@@ -107,13 +107,15 @@
 
   function renderOptionalSections() {
     const news = data.news || [];
-    $('news').hidden = news.length === 0;
+    $('news-list').hidden = news.length === 0;
+    $('news-empty').hidden = news.length > 0;
     $('news-list').innerHTML = news.map((item) => `<li class="news-item"><span class="news-date">${escape(item.date)}</span><p>${externalLink(item.url, escape(localized(item.text)))}</p></li>`).join('');
     const experience = data.experience || [];
     $('experience').hidden = experience.length === 0;
     $('experience-list').innerHTML = experience.map((item) => `<article class="experience-item"><p>${escape(localized(item.period))}</p><h3>${escape(localized(item.title))}</h3><p>${escape(localized(item.organization))}</p>${item.description ? `<p>${escape(localized(item.description))}</p>` : ''}</article>`).join('');
     const awards = data.awards || [];
-    $('awards').hidden = awards.length === 0;
+    $('awards-list').hidden = awards.length === 0;
+    $('awards-empty').hidden = awards.length > 0;
     $('awards-list').innerHTML = awards.map((item) => `<li class="news-item"><span class="news-date">${escape(item.year)}</span><p>${escape(localized(item.title))}</p></li>`).join('');
   }
 

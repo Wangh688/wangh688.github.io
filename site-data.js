@@ -16,10 +16,9 @@ window.SITE_DATA = {
     cv: ""
   },
   researchInterests: [
-    "Low-level vision",
-    "Image fusion",
-    "Multi-view clustering",
-    "Causal representation learning"
+    "Low-level Vision, Image Fusion, Low-light Image Enhancement",
+    "Causal Disentanglement, Interventional Learning",
+    "Multi-view Clustering, Representation Learning, Contrastive Learning"
   ],
   // Publications appear in this order. See README.md for the data format.
   publications: [],

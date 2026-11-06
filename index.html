@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Hao Wang, undergraduate student at Zhengzhou University. Research interests: low-level vision, image fusion, multi-view clustering, and causal representation learning.">
+  <meta name="description" content="Hao Wang, undergraduate student at Zhengzhou University. Research interests include low-level vision, image fusion, causal disentanglement, and multi-view clustering.">
   <meta name="theme-color" content="#e5effa">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Hao Wang">
@@ -14,9 +14,9 @@
   <link rel="canonical" href="https://wangh688.github.io/">
   <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="./favicon.ico?v=20261106-hw">
   <link rel="icon" type="image/svg+xml" sizes="any" href="./assets/favicon.svg?v=20261106-hw">
-  <link rel="stylesheet" href="./assets/style.css?v=20261106-portrait">
-  <script defer src="./site-data.js"></script>
-  <script defer src="./assets/site.js?v=20261106-portrait"></script>
+  <link rel="stylesheet" href="./assets/style.css?v=20261106-sections">
+  <script defer src="./site-data.js?v=20261106-sections"></script>
+  <script defer src="./assets/site.js?v=20261106-sections"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -47,17 +47,21 @@
             <p>Hi, I am <strong>Hao Wang</strong>.</p>
             <p>I am an undergraduate student at <a href="https://www.zzu.edu.cn/" target="_blank" rel="noopener noreferrer">Zhengzhou University</a>.</p>
           </div>
+          <section id="news" aria-labelledby="news-heading">
+            <h2 id="news-heading">News</h2>
+            <ul class="news-list" id="news-list" hidden></ul>
+            <p id="news-empty" class="section-empty">To be updated.</p>
+          </section>
           <section id="research" aria-labelledby="research-heading">
             <h2 id="research-heading">Research Interests</h2>
             <ul id="research-list" class="research-list">
-              <li>Low-level vision</li><li>Image fusion</li><li>Multi-view clustering</li><li>Causal representation learning</li>
+              <li>Low-level Vision, Image Fusion, Low-light Image Enhancement</li>
+              <li>Causal Disentanglement, Interventional Learning</li>
+              <li>Multi-view Clustering, Representation Learning, Contrastive Learning</li>
             </ul>
           </section>
         </div>
       </div>
-    </section>
-    <section id="news" class="content-section" aria-labelledby="news-heading" hidden>
-      <h2 id="news-heading">News</h2><ul class="news-list" id="news-list"></ul>
     </section>
     <section id="publications" class="content-section" aria-labelledby="publications-heading">
       <h2 id="publications-heading">Selected Publications</h2>
@@ -69,11 +73,13 @@
       <div id="publication-list" class="publication-list" aria-live="polite"></div>
       <p id="publication-empty" class="publication-empty">To be updated.</p>
     </section>
+    <section id="awards" class="content-section" aria-labelledby="awards-heading">
+      <h2 id="awards-heading">Awards and Honors</h2>
+      <ul id="awards-list" class="news-list" hidden></ul>
+      <p id="awards-empty" class="section-empty">To be updated.</p>
+    </section>
     <section id="experience" class="content-section" aria-labelledby="experience-heading" hidden>
       <h2 id="experience-heading">Experience</h2><div id="experience-list" class="experience-list"></div>
-    </section>
-    <section id="awards" class="content-section" aria-labelledby="awards-heading" hidden>
-      <h2 id="awards-heading">Honors &amp; Awards</h2><ul id="awards-list" class="news-list"></ul>
     </section>
   </main>
   <footer class="site-footer"><div class="footer-inner"><p>© <span id="copyright-year">2026</span> <span id="footer-name">Hao Wang</span>.</p></div></footer>
