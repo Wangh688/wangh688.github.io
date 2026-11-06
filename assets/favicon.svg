@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#174c8f"/><path d="M16 16h7v13h18V16h7v32h-7V35H23v13h-7Z" fill="#fff"/><circle cx="50" cy="50" r="4" fill="#9abde7"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Aperture from Lucide / Feather. License: ./LICENSE-lucide.txt -->
+  <rect width="32" height="32" rx="8" fill="#e5effa"/>
+  <g transform="translate(2 2) scale(1.1666667)" fill="none" stroke="#115fb3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="m14.31 8 5.74 9.94M9.69 8h11.48m-13.79 4 5.74-9.94M9.69 16 3.95 6.06M14.31 16H2.83m13.79-4-5.74 9.94"/>
+  </g>
+</svg>
